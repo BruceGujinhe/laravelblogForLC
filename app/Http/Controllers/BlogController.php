@@ -23,7 +23,6 @@ class BlogController extends Controller
 
         $article = Article::whereId($id)->firstOrFail();
         $user = $article->users()->first();
-        $comments = $article->comments()->getResults();
         return view('blog.article')->withArticle($article)->withUser($user);
     }
 }

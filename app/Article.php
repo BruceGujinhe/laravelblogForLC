@@ -57,8 +57,43 @@ class Article extends Model
     }
 
     //TODO 与标签关联
+    /**
+     * The many-to-many relationship between posts and tags.
+     *
+     * @return BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag', 'article_tag_pivot');
+    }
+    /**
+     * Sync tag relation adding new tags as needed
+     *
+     * @param array $tags
+     */
+    public function syncTags(array $tags)
+    {
+        Tag::addNeededTags($tags);
+
+        if (count($tags)) {
+            $this->tags()->sync(
+                Tag::whereIn('tag', $tags)->pluck('id')->all()
+            );
+            return;
+        }
+
+        $this->tags()->detach();
+    }
 
     //TODO 与用户关联
+    /**
+     * 多篇文章对应一位作者。（many articles to one author)
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'user_article_pivot');
+    }
 
     //TODO 与评论关联
 }
