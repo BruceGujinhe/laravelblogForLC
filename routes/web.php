@@ -25,3 +25,6 @@ Route::resource('user/tag', 'TagController', ['except' => 'show']);
 
 Route::resource('comment','CommentController');
 
+Route::get('profile', 'UserController@profile')->name('profile');
+Route::post('profile', 'UserController@updateProfileImg')->name('profile');
+
