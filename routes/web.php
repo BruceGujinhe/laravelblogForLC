@@ -23,3 +23,5 @@ Route::get('blog/{id}', 'BlogController@showArticle');
 Route::resource('user/article', 'ArticleController', ['except' => 'show']);
 Route::resource('user/tag', 'TagController', ['except' => 'show']);
 
+Route::resource('comment','CommentController');
+

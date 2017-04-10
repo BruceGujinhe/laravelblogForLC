@@ -19,4 +19,5 @@
     </div>
 
     </br>
+    @include('blog.comment_form')
 @endsection

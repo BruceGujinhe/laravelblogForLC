@@ -23,6 +23,8 @@ class BlogController extends Controller
 
         $article = Article::whereId($id)->firstOrFail();
         $user = $article->users()->first();
-        return view('blog.article')->withArticle($article)->withUser($user);
+        $comments = $article->comments()->getResults();//直接使用$article->comments()时，会得到null的comment（查询官方文档）
+//        dd($comments);
+        return view('blog.article')->withArticle($article)->withUser($user)->withComments($comments);
     }
 }

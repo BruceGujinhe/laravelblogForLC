@@ -96,4 +96,11 @@ class Article extends Model
     }
 
     //TODO 与评论关联
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function comments()
+    {
+        return $this->belongsToMany('App\Comment', 'article_comment_pivot');
+    }
 }
