@@ -24,5 +24,5 @@ In this blog system, we could:
 8. Add profile modify function.
 
 ## License
-The Blog System  is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+1. The Blog System  is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+2. The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
