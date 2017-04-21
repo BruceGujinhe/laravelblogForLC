@@ -21,11 +21,13 @@
                             <div class="col-md-4">{{$comment->updated_at}}</div>
                             <div class="col-md-2">&nbsp;</div>
                             <div class="col-md-6">
-                                @if($comment->user_id == Auth::user()->id)
-                                    <button  class="btn btn-info edit"
-                                             value="{{$comment->id}}" style="margin-right: 15px">Update</button>
-                                    <button class="btn btn-warning delete"
-                                            value="{{$comment->id}}">Delete</button>
+                                @if(!Auth::guest())
+                                    @if($comment->user_id == Auth::user()->id)
+                                        <button  class="btn btn-info edit"
+                                                 value="{{$comment->id}}" style="margin-right: 15px">Update</button>
+                                        <button class="btn btn-warning delete"
+                                                value="{{$comment->id}}">Delete</button>
+                                    @endif
                                 @endif
                             </div>
                         </div>
